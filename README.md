@@ -23,9 +23,6 @@ from rag_utils import ingest_documents, query_documents
 ```
 rag_utils.py           # the two reusable functions
 example_usage.py       # minimal example: ingest then query
-smoke_test.py          # quick manual end-to-end check
-test_rag_utils.py      # pytest suite
-pytest.ini             # registers the `integration` test marker
 ```
 
 ## 🛠️ Requirements
@@ -64,7 +61,6 @@ pip install --upgrade pip
 pip install langchain langchain-community langchain-classic langchain-chroma \
             langchain-huggingface langchain-groq langchain-text-splitters \
             "unstructured[pdf]" pytesseract pdf2image nltk python-dotenv
-pip install pytest --break-system-packages   # optional, for running tests
 ```
 
 ### 3. Download the NLTK tokenizer data (one-time)
@@ -136,24 +132,6 @@ Response shape:
 }
 ```
 
-## 🧪 Testing
-
-### Quick manual smoke test
-
-```bash
-python smoke_test.py
-```
-
-Creates a throwaway bilingual text file in a temp folder, ingests it, asks one English and one Arabic question, and verifies the answers — no dependency on your real documents or vector store.
-
-### Full pytest suite
-
-```bash
-pytest test_rag_utils.py -v
-```
-
-All tests call the real embedding model and Groq API (marked `@pytest.mark.integration`), so `GROQ_API_KEY` must be set. Each test runs in an isolated temp directory via pytest's `tmp_path` fixture.
-
 ## ⚠️ Known Issues / Notes
 
 - **Arabic text in the terminal may look reversed/scrambled even when correct.** Most terminals don't fully implement bidi rendering for mixed RTL/LTR text (numbered lists, markdown bold, punctuation). This is a display-only issue — check output in a notebook or GUI viewer to confirm the actual string is correct.
@@ -173,4 +151,4 @@ MIT
 
 ## 👤 Author
 
-**Eslam Ali** —  AI Engineer & Mobile Tech Lead 
+**Eslam Ali** — AI Engineer & Mobile Tech Lead
