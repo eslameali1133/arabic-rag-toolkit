@@ -173,4 +173,4 @@ MIT
 
 ## 👤 Author
 
-**Eslam Ali** — Mobile Tech Lead transitioning into AI & Mobile App Development
+**Eslam Ali** —  AI Engineer & Mobile Tech Lead 
